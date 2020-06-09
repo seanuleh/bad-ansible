@@ -2,11 +2,11 @@
 
 - name: install {{ package }}
   package:
-    name: {{ package }}
+    name: "{{ package }}"
     state: latest
 - name: enable {{ package }} at boot
   service:
-    name: {{ package }}
+    name: "{{ package }}"
     enabled: yes
 - name: create ansible tomcat directory
   file:
@@ -19,5 +19,5 @@
     mode: 0644
 - name: restart {{ package }}
   service:
-    name: {{ package }}
+    name: "{{ package }}"
     state: restarted
