@@ -1,4 +1,4 @@
 package: 
   - tomcat
-  - apache
+  - httpd
 tomcat_root_dir: /usr/share/tomcat/webapps/ROOT
