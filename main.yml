@@ -34,7 +34,7 @@
     - {name: app-tier}
 
 - name: deploy postgres
-  hosts: apps
+  hosts: appdbs
   become: yes
   roles:
     - {name: db-tier}
