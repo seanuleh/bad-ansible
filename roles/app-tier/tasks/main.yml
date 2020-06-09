@@ -10,7 +10,7 @@
     enabled: yes
 - name: create ansible tomcat directory
   file:
-    path: {{ tomcat_root_dir }}
+    path: "{{ tomcat_root_dir }}"
     state: directory
 - name: copy static index.html to tomcat root dir
   template:
