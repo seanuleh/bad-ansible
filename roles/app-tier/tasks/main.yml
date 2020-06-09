@@ -9,7 +9,6 @@
     name: "{{ item }}"
     enabled: yes
   loop: "{{ package }}"
-
 - name: create ansible tomcat directory
   file:
     path: "{{ tomcat_root_dir }}"

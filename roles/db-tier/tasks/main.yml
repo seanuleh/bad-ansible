@@ -1,24 +1,25 @@
 ---
-
 - name: install {{ package }}
   yum:
     name: "{{ package }}"
     state: latest
+
 - name: enable {{ package }}
   service:
     name: "{{ service }}"
     enabled: yes
-- name: tell user to finish setting up postgres
-  debug:
-    msg: "Either uncomment the postgres setup or manually login and initialize"
+
+- name: Check database initialization
+  command: postgresql-check-db-dir  /var/lib/pgsql/data
+  register: check_db_output
+  changed_when: check_db_output == 1
+  ignore_errors: yes
+  
+- name: initilize postgres
+  shell: postgresql-setup initdb
+  when: check_db_output.rc != 0
+
 - name: start {{ service }}
   service:
     name: "{{ service }}"
     state: started
-
-# NOT FIXED
-# only run the next 2 tasks once!
-#  - name: initilize postgres
-#    command: postgresql-setup initdb
-#  - name: initilize postgres some more
-#    command: chkconfig postgresql on
