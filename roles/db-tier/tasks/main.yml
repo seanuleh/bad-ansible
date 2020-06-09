@@ -1,0 +1,24 @@
+---
+
+- name: install {{ package }}
+  yum:
+    name: {{ package }}
+    state: latest
+- name: enable {{ package }}
+  service:
+    name: {{ package }}
+    enabled: yes
+- name: tell user to finish setting up postgres
+  debug:
+    msg: "Either uncomment the postgres setup or manually login and initialize"
+- name: start {{ service }}
+  service:
+    name: {{ service }}
+    state: started
+
+# NOT FIXED
+# only run the next 2 tasks once!
+#  - name: initilize postgres
+#    command: postgresql-setup initdb
+#  - name: initilize postgres some more
+#    command: chkconfig postgresql on

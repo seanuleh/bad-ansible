@@ -1,0 +1,2 @@
+package: postgresql-server
+service: postgresql.service
