@@ -6,7 +6,7 @@
     state: latest
 - name: enable {{ package }}
   service:
-    name: "{{ package }}"
+    name: "{{ service }}"
     enabled: yes
 - name: tell user to finish setting up postgres
   debug:
