@@ -7,7 +7,5 @@
 
 - name: install common tools
   yum:
-    name: "{{ item }}" 
+    name: "{{ package }}" 
     state: latest
-  with_items:
-    - httpie

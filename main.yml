@@ -44,4 +44,4 @@
 #   hosts: apps
 #   become: yes
 #   roles:
-#     - {name: db-tier}
+#     - {name: app-tier}
