@@ -2,18 +2,18 @@
 
 - name: install {{ package }}
   yum:
-    name: {{ package }}
+    name: "{{ package }}"
     state: latest
 - name: enable {{ package }}
   service:
-    name: {{ package }}
+    name: "{{ package }}"
     enabled: yes
 - name: tell user to finish setting up postgres
   debug:
     msg: "Either uncomment the postgres setup or manually login and initialize"
 - name: start {{ service }}
   service:
-    name: {{ service }}
+    name: "{{ service }}"
     state: started
 
 # NOT FIXED
