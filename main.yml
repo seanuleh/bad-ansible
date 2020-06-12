@@ -13,7 +13,8 @@
 #   Bare variables
 #   No use of handlers
 
-
+- name: Import In-memory inventory play
+  import_playbook: in-memory-inventory.yml
 
 - name: configuration
   hosts: all
